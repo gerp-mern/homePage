@@ -1,0 +1,12 @@
+/*<W_Comment>----------={  Construction progressbar animation  }=----------</W_Comment> */
+@keyframes progress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+.animate-\\[progress_2s_ease-in-out_forwards\\] {
+  animation: progress 2s ease-in-out forwards;
+}

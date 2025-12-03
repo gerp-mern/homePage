@@ -1,7 +1,9 @@
+"use client"
+
 import { useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import Link from "next/link";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
