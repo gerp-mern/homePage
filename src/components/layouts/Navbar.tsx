@@ -1,14 +1,13 @@
 "use client"
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
-    const menuRef = useRef(null);
-    const btnRef = useRef(null);
 
     return (
         <nav className="bg-white border-b">
@@ -24,44 +23,47 @@ export default function Navbar() {
 
                     {/* Desktop links */}
                     <div className="hidden md:flex md:items-center md:gap-6">
-                        <a href="#" className="text-sm font-medium hover:text-indigo-600">
+                        <Link href="/apps" className="text-sm font-medium hover:text-indigo-600">
                             Apps
-                        </a>
-                        <a href="#" className="text-sm font-medium hover:text-indigo-600">
-                            Why Globe ERP
-                        </a>
-                        <a href="#" className="text-sm font-medium hover:text-indigo-600">
+                        </Link>
+                        <Link href="/why" className="text-sm font-medium hover:text-indigo-600">
+                            Why Globe
+                        </Link>
+                        <Link href="/services" className="text-sm font-medium hover:text-indigo-600">
                             Services
-                        </a>
-                        <a href="#" className="text-sm font-medium hover:text-indigo-600">
+                        </Link>
+                        <Link href="pricing" className="text-sm font-medium hover:text-indigo-600">
                             Pricing
-                        </a>
-                        <a href="#" className="text-sm font-medium hover:text-indigo-600">
+                        </Link>
+                        <Link href="help" className="text-sm font-medium hover:text-indigo-600">
                             Help
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Right side (search + icons) */}
                     <div className="flex items-center gap-3">
-
+                        <ThemeToggle />
                         {/* Profile / Cart Icons */}
                         <Button className="bg-transparent text-black hover:bg-blue-50 rounded-sm">
-                            Sign up
+                            <Link href="/signup">
+                                Sign up
+                            </Link>
                         </Button>
                         <Button className="bg-amber-500 hover:bg-amber-600 rounded-sm">
-                            Try it free
+                            <Link href="/try">
+                                Try it free
+                            </Link>
                         </Button>
 
                         {/* Mobile menu button */}
-                        <button
-                            ref={btnRef}
+                        <Button
                             onClick={() => setOpen((s) => !s)}
-                            className="md:hidden p-2 rounded-md hover:bg-gray-100"
+                            className="md:hidden p-2 rounded-md hover:bg-gray-100 bg-transparent text-black dark-white"
                             aria-expanded={open}
                             aria-controls="mobile-menu"
                         >
                             {open ? <X size={20} /> : <Menu size={20} />}
-                        </button>
+                        </Button>
                     </div>
                 </div>
             </div>
@@ -69,23 +71,23 @@ export default function Navbar() {
             {/* Mobile menu (collapsible) */}
             <div
                 id="mobile-menu"
-                ref={menuRef}
+                // ref={menuRef}
                 className={`md:hidden ${open ? "" : "hidden"} border-t border-gray-100`}
             >
                 <div className="px-2 pt-3 pb-4 space-y-1">
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
+                    <a href="/apps" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
                         Apps
                     </a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
+                    <a href="/why" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
                         Why Globe ERP
                     </a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
+                    <a href="/services" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
                         Services
                     </a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
+                    <a href="/pricing" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
                         Pricing
                     </a>
-                    <a href="#" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
+                    <a href="help" className="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-50">
                         Help
                     </a>
                 </div>

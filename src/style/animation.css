@@ -8,5 +8,6 @@
   }
 }
 .animate-\\[progress_2s_ease-in-out_forwards\\] {
-  animation: progress 2s ease-in-out forwards;
+  animation: progress 3s ease-in-out forwards;
+  animation-delay: 1s;
 }

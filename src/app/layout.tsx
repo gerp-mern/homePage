@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Salsa, Roboto_Condensed, Roboto_Slab } from "next/font/google";
 import { ThemeProvider } from "@/provider/themeProvider";
-import Navbar from "@/components/layouts/N_avbar";
+import Navbar from "@/components/layouts/Navbar";
 import "../style/globals.css";
 
 const roboto = Roboto_Slab({
@@ -35,13 +35,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${salsa.variable} ${roboto.variable} ${roboto2.variable} antialiased`}>
-        <Navbar />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
