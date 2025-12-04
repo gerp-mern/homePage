@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import { Salsa, Roboto_Condensed, Roboto_Slab } from "next/font/google";
+import { siteMetadata, siteViewport } from "@/config/metadata";
 import { ThemeProvider } from "@/provider/themeProvider";
 import Navbar from "@/components/layouts/Navbar";
 import "../style/globals.css";
@@ -22,10 +22,8 @@ const salsa = Salsa({
   weight: "400",
 });
 
-export const metadata: Metadata = {
-  title: "Globe ERP",
-  description: "We provide ERP based software solutions for businesses of all sizes.",
-};
+export const metadata = siteMetadata;
+export const viewport = siteViewport;
 
 export default function RootLayout({
   children,

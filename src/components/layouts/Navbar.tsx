@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "../ui/button";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import companyDetails from "@/data/company";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -14,11 +15,16 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
                     {/* Logo section */}
-                    <Link href="/" className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-linear-to-br from-indigo-500 to-purple-500 rounded-md flex items-center justify-center text-white font-semibold">
-                            G
+                    <Link href="/" className="flex items-center gap-2 group">
+                        <div className="relative w-10 h-10 flex items-center justify-center">
+                          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg transform group-hover:rotate-6 transition-transform duration-300"></div>
+                          <div className="relative w-8 h-8 bg-white dark:bg-gray-900 rounded-md flex items-center justify-center">
+                            <span className="text-indigo-600 dark:text-indigo-400 font-bold text-xl">G</span>
+                          </div>
                         </div>
-                        <span className="font-semibold text-lg hidden sm:inline">Globe ERP</span>
+                        <span className="font-bold text-xl bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent hidden sm:inline group-hover:from-indigo-700 group-hover:to-purple-700 transition-colors duration-300">
+                          {companyDetails.name}
+                        </span>
                     </Link>
 
                     {/* Desktop links */}

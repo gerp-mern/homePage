@@ -160,7 +160,6 @@ const Construction = () => {
             alt="Construction Image"
             width={1000}
             height={700}
-            priority
           />
         </motion.div>
       </div>
