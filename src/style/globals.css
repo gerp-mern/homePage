@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./animation.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -38,6 +39,10 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+    /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
+  --web-color-01: var(--web-color-01);
+  --web-color-02: var(--web-color-02);
 }
 
 :root {
@@ -78,6 +83,10 @@
   --font-1: "Roboto Slab", serif;
   --font-2: "Roboto Condensed", sans-serif;
   --font-3: "Salsa", cursive;
+  
+  /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
+  --web-color-01: rgb(65, 61, 152);
+  --web-color-02: rgb(240, 86, 52);
 }
 
 .dark {
@@ -112,6 +121,10 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+
+  /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
+  --web-color-01: oklch(1 0 0);
+  --web-color-02: oklch(1 0 0);
 }
 
 @layer base {
@@ -173,4 +186,17 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--color-foreground);
+}
+/*<W_Comment>----------={  Custom Color Class  }=----------</W_Comment> */
+.text-color1{
+  color: var(--web-color-01);
+}
+.text-color2{
+  color: var(--web-color-02);
+}
+.bg-color1{
+  background-color: var(--web-color-01);
+}
+.bg-color2{
+  background-color: var(--web-color-02);
 }

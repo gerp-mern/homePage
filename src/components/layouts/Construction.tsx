@@ -117,7 +117,7 @@ const Construction = () => {
             custom={0.5}
           >
             <div className="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2 overflow-hidden">
-              <div className="h-2 rounded-full bg-amber-500 w-2/5 animate-[progress_2s_ease-in-out_forwards]" />
+              <div className="h-2 rounded-full bg-amber-500 w-2/5 animate-progressbar" />
             </div>
             <div className="mt-2 text-sm text-slate-500 dark:text-slate-400">Estimated launch: Q1 2026</div>
           </motion.div>

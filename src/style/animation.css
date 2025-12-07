@@ -7,7 +7,21 @@
     width: 40%;
   }
 }
-.animate-\\[progress_2s_ease-in-out_forwards\\] {
+.animate-progressbar {
   animation: progress 3s ease-in-out forwards;
   animation-delay: 1s;
+}
+
+/*<W_Comment>----------={  Logo spinning animations  }=----------</W_Comment> */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 20s linear infinite;
 }
