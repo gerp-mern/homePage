@@ -1,5 +1,6 @@
 const companyDetails = {
-  name: "Globe ERP",
+  firstName: "GLOBE",
+  lastName:" ERP",
   logo: "/logo.png",
   description:
     "We provide ERP based software solutions for businesses of all sizes.",
