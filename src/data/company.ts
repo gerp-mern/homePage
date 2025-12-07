@@ -1,7 +1,15 @@
 const companyDetails = {
-  name: "GLobe ERP",
+  name: "Globe ERP",
+  logo: "/logo.png",
   description:
     "We provide ERP based software solutions for businesses of all sizes.",
+  routes: [
+    { path: "/apps", name: "Apps" },
+    { path: "/why", name: "Why Globe" },
+    { path: "/services", name: "Services" },
+    { path: "/pricing", name: "Pricing" },
+    { path: "/help", name: "Help" },
+  ],
   bannerImages: [
     "/img/banner/banner1.jpg",
     "/img/banner/banner2.jpg",
