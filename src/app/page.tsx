@@ -2,6 +2,8 @@
 
 import { motion } from "motion/react";
 import { fadeUpAnimation } from "@/lib/motion.utils";
+import ParallaxHero from "@/components/layouts/MouseEffect";
+import WaterRipple from "@/components/layouts/MouseEffect";
 
 export default function Home() {
   return (
@@ -15,7 +17,6 @@ export default function Home() {
             Set up is Ready
           </motion.h1>
         </motion.div>
-
       </div>
     </div>
   );
