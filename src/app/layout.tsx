@@ -40,9 +40,9 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Navbar />
-          {/* Mouse ripple background */}
+          {/* Mouse and finger touch ripple background */}
           <WaterRipple />
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>

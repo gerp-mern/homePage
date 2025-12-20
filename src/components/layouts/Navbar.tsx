@@ -20,7 +20,6 @@ export default function Navbar() {
         } else {
             document.body.style.overflow = 'auto';
         }
-
         return () => {
             document.body.style.overflow = 'auto';
         };
@@ -53,7 +52,7 @@ export default function Navbar() {
                         {/* Company Name */}
                         <div className="font-bold text-xl sm:w-28 transition-all duration-500 tracking-normal group-hover:tracking-wide transform group-hover:scale-y-110">
                             <span className="flex items-center text-color1 ">
-                                Gl
+                                GL
                                 <Image
                                     src={companyDetails.logo}
                                     alt={`${companyDetails.firstName} ${companyDetails.lastName} Logo`}
@@ -61,7 +60,7 @@ export default function Navbar() {
                                     height={500}
                                     className="w-[16px] h-[17px] transition-transform duration-500 group-hover:scale-105"
                                 />
-                                be <span className="text-color2">&nbsp;{companyDetails.lastName}</span>
+                                BE <span className="text-color2">&nbsp;{companyDetails.lastName}</span>
                             </span>
                         </div>
                     </Link>
@@ -83,14 +82,14 @@ export default function Navbar() {
                     {/* Right side */}
                     <div className="hidden md:flex items-center">
                         <ThemeToggle />
-                        <Button className="mx-3 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-blue-50 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-lg">
+                        <Button className="mx-3 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-blue-100/60 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
                             <Link href="/signup">
-                                Sign Up
+                                Sign in
                             </Link>
                         </Button>
-                        <Button className="bg-[rgba(65,61,152,0.9)] hover:bg-[rgb(65,61,152)] dark:bg-indigo-700 hover:dark:bg-indigo-800 text-white hover:shadow-[0_0_20px_rgba(65,61,152,0.5)] dark:hover:shadow-none transition-all duration-300 transform hover:-translate-y-0.5 rounded-lg">
+                        <Button className="bg-[rgba(65,61,152,0.9)] hover:bg-[rgb(65,61,152)] dark:bg-indigo-700 hover:dark:bg-indigo-800 text-white hover:shadow-[0_0_20px_rgba(65,61,152,0.5)] dark:hover:shadow-none transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
                             <Link href="/try">
-                                Try It Free
+                                Try it free
                             </Link>
                         </Button>
                     </div>
@@ -103,7 +102,7 @@ export default function Navbar() {
                                     Sign Up
                                 </Link>
                             </Button>
-                            <Button className="bg-[rgba(65,61,152,0.9)] dark:bg-indigo-700 text-white rounded-lg">
+                            <Button className="bg-[rgba(65,61,152,0.9)] dark:bg-indigo-700 text-white rounded-sm">
                                 <Link href="/try">
                                     Try It Free
                                 </Link>
