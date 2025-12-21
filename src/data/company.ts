@@ -12,11 +12,17 @@ const companyDetails = {
     { path: "/help", name: "Help" },
   ],
   bannerImages: [
-    "/img/banner/banner1.jpg",
-    "/img/banner/banner2.jpg",
-    "/img/banner/banner3.jpg",
-    "/img/banner/banner4.jpg",
+    "/banner1.jpg",
+    "/banner2.jpg",
+    "/banner3.jpg",
+    "/banner4.jpg",
   ],
+  stats:{
+    uptime: "99.9%",
+    customers: "500+",
+    support: "24/7",
+    transactions: "1M+",
+  },
   contact: {
     phone: "+880 1729-348790",
     email: "info@company.com",

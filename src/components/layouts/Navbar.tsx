@@ -42,8 +42,7 @@ export default function Navbar() {
                                 alt={`${companyDetails.firstName} ${companyDetails.lastName} Logo`}
                                 width={700}
                                 height={500}
-                                className="w-7 h-7 animate-spin-slow group-hover:rotate-[360deg] group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                            // group-hover:animate-spin-fast
+                                className="w-7 h-7 animate-spin-slow group-hover:rotate-360 group-hover:scale-105 transition-transform duration-700 ease-in-out"
                             />
                             {/* Added pulsing ring effect */}
                             <div className="absolute inset-0 rounded-full border-2 border-blue-500 opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
@@ -58,7 +57,7 @@ export default function Navbar() {
                                     alt={`${companyDetails.firstName} ${companyDetails.lastName} Logo`}
                                     width={700}
                                     height={500}
-                                    className="w-[16px] h-[17px] transition-transform duration-500 group-hover:scale-105"
+                                    className="w-4 h-[17px] transition-transform duration-500 group-hover:scale-105"
                                 />
                                 BE <span className="text-color2">&nbsp;{companyDetails.lastName}</span>
                             </span>
@@ -74,7 +73,7 @@ export default function Navbar() {
                                 className="text-sm font-medium relative group"
                             >
                                 <span className="relative z-10 hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 transition-colors duration-300">{route.name}</span>
-                                <span className="absolute bottom-[-4px] left-1/2 w-0 h-0.5 bg-[rgb(65,61,152)] dark:bg-blue-200 rounded-full transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                                <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[rgb(65,61,152)] dark:bg-blue-200 rounded-full transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
                             </Link>
                         ))}
                     </div>
