@@ -31,7 +31,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="border-b bg-blue- /60 dark:bg-gray-900">
+        <nav className="dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-14 items-center">
                     {/* logo section */}

@@ -39,6 +39,8 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --scrollbar-track-color: var(--scrollbar-track-color);
+  --scrollbar-thumb-color: var(--scrollbar-thumb);
 
     /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
   --web-color-01: var(--web-color-01);
@@ -78,6 +80,8 @@
   --sidebar-accent-foreground: oklch(0.21 0.034 264.665);
   --sidebar-border: oklch(0.928 0.006 264.531);
   --sidebar-ring: oklch(0.707 0.022 261.325);
+  --scrollbar-track-color: oklch(1 0 0);
+  --scrollbar-thumb-color: rgb(65, 61, 152);
 
   /*<W_Comment>----------={  Website Font Variables  }=----------</W_Comment> */
   --font-1: "Roboto Slab", serif;
@@ -121,6 +125,8 @@
   --sidebar-accent-foreground: oklch(0.985 0.002 247.839);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --scrollbar-track-color: oklch(0.13 0.028 261.692);
+  --scrollbar-thumb-color: oklch(1 0 0 / 10%);
 
   /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
   --web-color-01: oklch(1 0 0);
@@ -182,10 +188,10 @@ html {
   width: 0.625rem;
 }
 ::-webkit-scrollbar-track {
-  background-color: var(--color-background);
+  background-color: var(--scrollbar-track-color);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-foreground);
+  background-color: var(--scrollbar-thumb-color);
 }
 /*<W_Comment>----------={  Custom Color Class  }=----------</W_Comment> */
 .text-color1{
