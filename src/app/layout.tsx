@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${salsa.variable} ${roboto.variable} ${roboto2.variable} bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:bg-radial dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 antialiased`}>
+      <body className={`${salsa.variable} ${roboto.variable} ${roboto2.variable} bg-linear-to-br from-blue-50 via-white to-blue-100 dark:bg-radial dark:from-gray-800 dark:via-gray-900 dark:to-gray-950 antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
