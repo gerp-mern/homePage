@@ -129,8 +129,8 @@
   --scrollbar-thumb-color: oklch(1 0 0 / 10%);
 
   /*<W_Comment>----------={  Website Custom Color Variables  }=----------</W_Comment> */
-  --web-color-01: oklch(1 0 0);
-  --web-color-02: oklch(1 0 0);
+  --web-color-01:oklch(0.985 0.002 247.839);
+  --web-color-02: rgb(221, 76, 44);
 }
 
 @layer base {

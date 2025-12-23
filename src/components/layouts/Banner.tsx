@@ -6,9 +6,12 @@ import { fadeUpAnimation } from "@/lib/motion.utils";
 import companyDetails from "@/data/company";
 import Image from "next/image";
 import SeeMore from "../feature/seeMore";
+import Link from "next/link";
+import { MoveRight, Video } from "lucide-react";
 
 export default function Banner() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [isLg, setIsLg] = useState(false);
 
   // Auto-rotate banner images
   useEffect(() => {
@@ -20,6 +23,21 @@ export default function Banner() {
 
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsLg(window.innerWidth >= 1024);
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  const statsToShow = isLg
+    ? companyDetails.bannerInfo.stats
+    : companyDetails.bannerInfo.stats.slice(0, 3);
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden rounded-b-3xl">
@@ -42,30 +60,26 @@ export default function Banner() {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-linear-to-r from-background/90 to-background/10 dark:from-background/80 dark:to-background/60" />
+            {/* <div className="absolute inset-0 bg-linear-to-r from-background/90 to-background/10 dark:from-background/80 dark:to-background/60" /> */}
+            <div className="absolute inset-0 bg-linear-to-r from-background/70 sm:from-background/95 via-background/40 to-background/1 dark:from-background/90 dark:via-background/50 dark:to-background/20" />
           </motion.div>
         ))}
       </div>
 
-      {/* Animated Grid Overlay */}
-      <div className="absolute inset-0 opacity-10 dark:opacity-5">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px]"></div>
-      </div>
-
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center py-16 md:py-0">
+      <div className="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center py-20 md:py-0">
         <div className="max-w-3xl">
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-7xl font-bold md:mt-24 mb-6 leading-tight"
+            className="font-bold mt-4 md:mt-24 mb-4 sm:mb-6 leading-tight"
             {...fadeUpAnimation(20, 0.5, 0.1)}
           >
-            <span className="block">{companyDetails.bannerInfo.title.firstPart}</span>
-            <span className="block text-color1">{companyDetails.bannerInfo.title.lastPart}</span>
+            <span className="block text-4xl sm:text-5xl lg:text-7xl">{companyDetails.bannerInfo.title.firstPart}</span>
+            <span className="block text-color1 text-3xl sm:text-5xl lg:text-7xl">{companyDetails.bannerInfo.title.lastPart}</span>
           </motion.h1>
 
           {/* Description */}
           <motion.div
-            className="mb-4 max-w-2xl"
+            className="mb-4 sm:mb-6 max-w-2xl"
             {...fadeUpAnimation(20, 0.5, 0.2)}
           >
             <SeeMore />
@@ -76,32 +90,26 @@ export default function Banner() {
             className="flex flex-wrap gap-4"
             {...fadeUpAnimation(20, 0.5, 0.3)}
           >
-            <button className="px-8 py-4 bg-color1 hover:bg-color1/90 text-white font-medium rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-color1/30 flex items-center gap-2">
-              Start Free Trial
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </button>
-            <button className="px-8 py-4 bg-transparent border-2 border-color1 text-color1 hover:bg-color1/10 font-medium rounded-xl transition-all duration-300 flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-              </svg>
-              Watch Demo
-            </button>
+            <Link href={companyDetails.bannerInfo.primaryBtnLink} className="p-3 sm:px-8 sm:py-4 bg-indigo-800 hover:bg-indigo-800/90 text-white font-medium rounded-md sm:rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-color1/30 flex items-center gap-2">
+              {companyDetails.bannerInfo.primaryBtnText}
+              <MoveRight size={22} />
+            </Link>
+            <Link href={companyDetails.bannerInfo.secondaryBtnLink} className="px-8 py-3 sm:py-4 bg-transparent border-2 border-color1 text-color1 hover:bg-indigo-500/10 hover:border-indigo-800 font-medium rounded-xl transition-colors duration-300 flex items-center gap-2">
+              <Video />
+              {companyDetails.bannerInfo.secondaryBtnText}
+            </Link>
           </motion.div>
         </div>
       </div>
 
       {/* Stats Section */}
       <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-lg p-4 flex gap-8"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-lg py-3 px-4 sm:p-4 flex gap-4 sm:gap-8"
         {...fadeUpAnimation(20, 0.5, 0.4)}
       >
-        {companyDetails.bannerInfo.stats.map((item, index) => (
+        {statsToShow.map((item, index) => (
           <div key={index} className="text-center">
-            <div className="text-2xl font-bold text-color1">
+            <div className="text-xl sm:text-2xl font-bold text-color1">
               {item.value}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-300">
@@ -111,9 +119,8 @@ export default function Banner() {
         ))}
       </motion.div>
 
-
       {/* Image Indicators */}
-      <div className="absolute bottom-6 right-6 flex gap-2 z-10">
+      <div className="absolute bottom-6 right-6 flex gap-2">
         {companyDetails.bannerInfo.bannerImages.map((_, index) => (
           <button
             key={index}

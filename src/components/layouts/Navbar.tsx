@@ -81,7 +81,7 @@ export default function Navbar() {
                     {/* Right side */}
                     <div className="hidden md:flex items-center">
                         <ThemeToggle />
-                        <Button className="mx-3 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-blue-100/60 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
+                        <Button className="mx-2 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-indigo-100/60 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
                             <Link href="/signup">
                                 Sign in
                             </Link>
@@ -109,7 +109,7 @@ export default function Navbar() {
                         </div>
                         <Button
                             onClick={() => setOpen((s) => !s)}
-                            className="md:hidden p-2 rounded-md hover:bg-gray-100 bg-transparent text-black dark-white transition-transform duration-300"
+                            className="md:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 bg-transparent text-black dark:text-white transition-transform duration-300"
                             aria-expanded={open}
                             aria-controls="mobile-menu"
                         >

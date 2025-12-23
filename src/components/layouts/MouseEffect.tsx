@@ -31,8 +31,8 @@ export default function WaterRipple() {
 
         resizeCanvas();
         window.addEventListener("resize", resizeCanvas);
-
-        let ripples: Ripple[] = [];
+        
+        const ripples: Ripple[] = [];
 
         // DRAW LOOP
         const draw = () => {
@@ -128,7 +128,7 @@ export default function WaterRipple() {
     return (
         <div
             className="fixed left-0 right-0 bottom-0 pointer-events-none z-0"
-            style={{ top: "58px" }}
+            style={{ top: "57px" }}
         >
             <canvas
                 ref={canvasRef}
