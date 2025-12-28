@@ -12,6 +12,30 @@ import { fadeUpAnimation, staggeredFadeUp } from "@/lib/motion.utils";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const [lastScrollY, setLastScrollY] = useState(0);
+
+    // Handle scroll for navbar visibility
+    useEffect(() => {
+        const controlNavbar = () => {
+            if (window.scrollY > lastScrollY && window.scrollY > 100) {
+                // Scrolling down
+                setIsVisible(false);
+            } else if (window.scrollY < lastScrollY) {
+                // Scrolling up
+                setIsVisible(true);
+            }
+            setLastScrollY(window.scrollY);
+        };
+
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+            
+            return () => {
+                window.removeEventListener('scroll', controlNavbar);
+            };
+        }
+    }, [lastScrollY]);
 
     // Prevent scrolling when menu is open
     useEffect(() => {
@@ -33,7 +57,12 @@ export default function Navbar() {
     return (
         <motion.nav 
             className="bg-white dark:bg-gray-900 w-full sticky top-0 z-50"
-            {...fadeUpAnimation(-80, 0.5, 0)}
+            initial={{ y: -80, opacity: 0 }}
+            animate={{ 
+                y: isVisible ? 0 : -100,
+                opacity: isVisible ? 1 : 0
+            }}
+            transition={{ type: "spring", damping: 18, duration: 0.3 }}
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-14 items-center">

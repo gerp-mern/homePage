@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { fadeUpAnimation } from "@/lib/motion.utils";
 import Banner from "@/components/layouts/Banner";
+import Title from "@/components/ui/title";
 
 export default function Home() {
   return (
@@ -11,18 +12,11 @@ export default function Home() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 grow">
         <div className="max-w-6xl w-full space-y-16 mx-auto">
-          {/* Features Section */}
-          <motion.div 
-            className="text-center max-w-3xl mx-auto"
-            {...fadeUpAnimation(20, 0.5, 0)}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Why Choose <span className="text-color1">GLOBE ERP</span>?
-            </h2>
-            <p className="text-xl text-foreground/80">
-              Comprehensive solutions designed to streamline your business operations
-            </p>
-          </motion.div>
+              {/* Features Section */}
+          <Title 
+            title={<>Why Choose <span className="text-color1">GLOBE ERP</span>?</>}
+            subtitle="Comprehensive solutions designed to streamline your business operations"
+          />
           
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
