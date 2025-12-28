@@ -24,7 +24,7 @@ export default function Home() {
             </p>
           </motion.div>
           
-          {/* <motion.div 
+          <motion.div 
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             {...fadeUpAnimation(20, 0.5, 0.1)}
           >
@@ -67,7 +67,7 @@ export default function Home() {
                 </p>
               </div>
             ))}
-          </motion.div> */}
+          </motion.div>
           
           {/* CTA Section */}
           <motion.div 

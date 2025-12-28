@@ -22,7 +22,7 @@ const companyDetails = {
       firstPart: "Transform Your",
       lastPart: "Business Today"
     },
-    description: "We provide ERP based software solutions for businesses of all sizes. Streamline operations, boost productivity, and drive growth with our cutting-edge ERP solutions. |  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum provident consectetur rem qui facere placeat molestias autem fugiat aspernatur harum eius eos sapiente esse, sed laboriosam maxime quidem ipsum ullam at nobis. Quam nemo ullam", //, natus necessitatibus dolorum facere aperiam ratione quis similique corporis eos laborum suscipit quidem reiciendis delectus praesentium ipsum laudantium ab a sit repellat perferendis non, debitis incidunt! Atque error corrupti id
+    description: "We provide ERP-based software solutions for businesses of all sizes. Streamline operations, boost productivity, and drive growth with our cutting-edge ERP systems. Along with ERP solutions, we also offer custom Mobile App Solutions to help businesses stay connected, automate workflows, and deliver seamless user experiences across Android and iOS platforms.",
     primaryBtnText: "Start Free Trial",
     primaryBtnLink: "",
     secondaryBtnText: "Watch Demo",

@@ -126,10 +126,7 @@ export default function WaterRipple() {
     }, []);
 
     return (
-        <div
-            className="fixed left-0 right-0 bottom-0 pointer-events-none z-0"
-            style={{ top: "57px" }}
-        >
+        <div className="fixed left-0 right-0 bottom-0 top-0 pointer-events-none z-0">
             <canvas
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full pointer-events-none"

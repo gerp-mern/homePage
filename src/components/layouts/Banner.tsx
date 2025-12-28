@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
-import { fadeUpAnimation } from "@/lib/motion.utils";
+import { fadeUpAnimation, staggeredFadeUp } from "@/lib/motion.utils";
 import companyDetails from "@/data/company";
 import Image from "next/image";
 import SeeMore from "../feature/seeMore";
@@ -60,7 +60,6 @@ export default function Banner() {
               className="object-cover"
               priority={index === 0}
             />
-            {/* <div className="absolute inset-0 bg-linear-to-r from-background/90 to-background/10 dark:from-background/80 dark:to-background/60" /> */}
             <div className="absolute inset-0 bg-linear-to-r from-background/70 sm:from-background/95 via-background/40 to-background/1 dark:from-background/90 dark:via-background/50 dark:to-background/20" />
           </motion.div>
         ))}
@@ -103,27 +102,38 @@ export default function Banner() {
       </div>
 
       {/* Stats Section */}
-      <motion.div
+      <div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-lg py-3 px-4 sm:p-4 flex gap-4 sm:gap-8"
         {...fadeUpAnimation(20, 0.5, 0.4)}
       >
         {statsToShow.map((item, index) => (
-          <div key={index} className="text-center">
+          <motion.div 
+            key={index}
+            custom={index}
+            variants={staggeredFadeUp}
+            initial="hidden"
+            animate="visible"
+            className="text-center"
+          >
             <div className="text-xl sm:text-2xl font-bold text-color1">
               {item.value}
             </div>
             <div className="text-sm text-gray-600 dark:text-gray-300">
               {item.label}
             </div>
-          </div>
+          </motion.div>
         ))}
-      </motion.div>
+      </div>
 
       {/* Image Indicators */}
       <div className="absolute bottom-6 right-6 flex gap-2">
         {companyDetails.bannerInfo.bannerImages.map((_, index) => (
-          <button
+          <motion.button
             key={index}
+            custom={index}
+            variants={staggeredFadeUp}
+            initial="hidden"
+            animate="visible"
             onClick={() => setCurrentImageIndex(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentImageIndex
               ? "bg-color1 w-6"

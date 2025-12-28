@@ -8,7 +8,7 @@ import companyDetails from "@/data/company";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { staggeredFadeUp } from "@/lib/motion.utils";
+import { fadeUpAnimation, staggeredFadeUp } from "@/lib/motion.utils";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
@@ -31,7 +31,10 @@ export default function Navbar() {
     };
 
     return (
-        <nav className="dark:bg-gray-900">
+        <motion.nav 
+            className="bg-white dark:bg-gray-900 w-full sticky top-0 z-50"
+            {...fadeUpAnimation(-80, 0.5, 0)}
+        >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-14 items-center">
                     {/* logo section */}
@@ -66,31 +69,53 @@ export default function Navbar() {
 
                     {/* Desktop links with glow effect */}
                     <div className="hidden md:flex md:items-center md:gap-6">
-                        {companyDetails.routes.map((route) => (
-                            <Link
+                        {companyDetails.routes.map((route, index) => (
+                            <motion.div 
                                 key={route.path}
-                                href={route.path}
-                                className="text-sm font-medium relative group"
+                                custom={index}
+                                variants={staggeredFadeUp}
+                                initial="hidden"
+                                animate="visible"
+                                className="w-fit"
                             >
-                                <span className="relative z-10 hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 transition-colors duration-300">{route.name}</span>
-                                <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[rgb(65,61,152)] dark:bg-blue-200 rounded-full transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
-                            </Link>
+                                <Link
+                                    href={route.path}
+                                    className="text-sm font-medium relative group"
+                                >
+                                    <span className="relative z-10 hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 transition-colors duration-300">{route.name}</span>
+                                    <span className="absolute -bottom-1 left-1/2 w-0 h-0.5 bg-[rgb(65,61,152)] dark:bg-blue-200 rounded-full transition-all duration-300 group-hover:left-0 group-hover:w-full"></span>
+                                </Link>
+                            </motion.div>
                         ))}
                     </div>
 
                     {/* Right side */}
                     <div className="hidden md:flex items-center">
                         <ThemeToggle />
-                        <Button className="mx-2 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-indigo-100/60 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
-                            <Link href="/signup">
-                                Sign in
-                            </Link>
-                        </Button>
-                        <Button className="bg-[rgba(65,61,152,0.9)] hover:bg-[rgb(65,61,152)] dark:bg-indigo-700 hover:dark:bg-indigo-800 text-white hover:shadow-[0_0_20px_rgba(65,61,152,0.5)] dark:hover:shadow-none transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
-                            <Link href="/try">
-                                Try it free
-                            </Link>
-                        </Button>
+                        <motion.div 
+                            custom={companyDetails.routes.length}
+                            variants={staggeredFadeUp}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <Button className="mx-2 text-black dark:text-white hover:text-[rgb(65,61,152)] hover:dark:text-blue-200 bg-white hover:bg-indigo-100/60 dark:bg-gray-900 hover:dark:bg-gray-800 transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
+                                <Link href="/signup">
+                                    Sign in
+                                </Link>
+                            </Button>
+                        </motion.div>
+                        <motion.div 
+                            custom={companyDetails.routes.length + 1}
+                            variants={staggeredFadeUp}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            <Button className="bg-[rgba(65,61,152,0.9)] hover:bg-[rgb(65,61,152)] dark:bg-indigo-700 hover:dark:bg-indigo-800 text-white hover:shadow-[0_0_20px_rgba(65,61,152,0.5)] dark:hover:shadow-none transition-all duration-300 transform hover:-translate-y-0.5 rounded-sm">
+                                <Link href="/try">
+                                    Try it free
+                                </Link>
+                            </Button>
+                        </motion.div>
                     </div>
                     {/* Improved Mobile menu button with rotation animation */}
                     <div className="flex items-center md:hidden">
@@ -164,6 +189,6 @@ export default function Navbar() {
                     </motion.div>
                 </div>
             </div>
-        </nav>
+        </motion.nav>
     );
 }
